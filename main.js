@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 
 let mainWindow;
-let cars = ["Saab", "Volvo", "BMW"];
+
 
 function createWindow() {
 
