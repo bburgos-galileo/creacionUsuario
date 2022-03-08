@@ -66,6 +66,16 @@ form.addEventListener('submit', (event) => {
         errfecha.className = "invalid-feedback"
     }
 
+    var ToDate = new Date();
+
+    if (new Date(fecha.value).getTime() > ToDate.getTime()) {
+        fecha.className = "form-control is-invalid"
+        errfecha.innerHTML = "";
+        errfecha.innerHTML = "La fecha ingresada no puede ser mayor a la fecha de hoy"
+        errfecha.className = "invalid-feedback d-block"
+        return false;
+    }
+
     if (!validateEmail(correo.value)) {
         correo.className = "form-control is-invalid"
         divErrMail.className = "invalid-feedback d-block"
@@ -109,7 +119,7 @@ form.addEventListener('submit', (event) => {
 
     const result = usuarios.filter((item) => item == nombres.value)
 
-    if (result.length == 0){
+    if (result.length == 0) {
         usuarios.push(nombres.value);
         console.log(usuarios);
     } else {
@@ -120,6 +130,6 @@ form.addEventListener('submit', (event) => {
         return false;
     }
 
-    
+
 
 });
